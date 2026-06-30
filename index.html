@@ -168,6 +168,9 @@
   /* heading mask reveal — text rises from behind a clip on scroll */
   .se-h-reveal{clip-path:inset(-.12em -.12em 105% -.12em);transform:translateY(.32em);transition:clip-path 1.05s cubic-bezier(.16,1,.3,1),transform 1.05s cubic-bezier(.16,1,.3,1);will-change:clip-path,transform}
   .se-h-reveal.in{clip-path:inset(-.12em -.12em -.18em -.12em);transform:none}
+  /* compact auto-pop enquiry modal (~50% smaller footprint) */
+  .se-modal-compact{transform:scale(.7);transform-origin:center center}
+  @media(max-width:560px){ .se-modal-compact{transform:scale(.86)} }
   /* project card image cross-fade swap + dual zoom */
   .se-proj-card .se-proj-img,.se-proj-card .se-proj-img2{transition:transform 1.2s cubic-bezier(.16,1,.3,1),opacity .8s ease}
   .se-proj-card .se-proj-img2{position:absolute;inset:0;opacity:0}
@@ -794,7 +797,7 @@
               <div style="{{ footHead }}">Get in touch</div>
               <p style="margin:0;font-size:14.5px;line-height:1.75;color:rgba(250,248,243,.7)">Experience Centre<br/>Andheri West, Mumbai 400 053</p>
               <a href="tel:+912240008000" style="display:block;margin-top:16px;font-size:14.5px;color:rgba(250,248,243,.7);text-decoration:none" style-hover="color:var(--se-hi)">+91 22 4000 8000</a>
-              <a href="mailto:hello@stableevershine.com" style="display:block;margin-top:6px;font-size:14.5px;color:rgba(250,248,243,.7);text-decoration:none" style-hover="color:var(--se-hi)">hello@stableevershine.com</a>
+              <a href="/cdn-cgi/l/email-protection#a3cbc6cfcfcce3d0d7c2c1cfc6c6d5c6d1d0cbcacdc68dc0ccce" style="display:block;margin-top:6px;font-size:14.5px;color:rgba(250,248,243,.7);text-decoration:none" style-hover="color:var(--se-hi)"><span class="__cf_email__" data-cfemail="0f676a6363604f7c7b6e6d636a6a796a7d7c6766616a216c6062">[email&#160;protected]</span></a>
               <button onClick="{{ openContact }}" style="margin-top:20px;cursor:pointer;font-family:inherit;font-size:13.5px;font-weight:600;color:#FAF8F3;background:transparent;border:1px solid rgba(250,248,243,.24);padding:11px 20px;border-radius:9999px" style-hover="border-color:rgba(251,179,26,.6);color:var(--se-hi)">Enquire now →</button>
             </div>
           </div>
@@ -1453,7 +1456,7 @@
             <div style="{{ footHead }}">Get in touch</div>
             <p style="margin:0;font-size:14.5px;line-height:1.75;color:rgba(250,248,243,.7)">Experience Centre<br/>Andheri West, Mumbai 400 053</p>
             <a href="tel:+912240008000" style="display:block;margin-top:16px;font-size:14.5px;color:rgba(250,248,243,.7);text-decoration:none" style-hover="color:var(--se-hi)">+91 22 4000 8000</a>
-            <a href="mailto:hello@stableevershine.com" style="display:block;margin-top:6px;font-size:14.5px;color:rgba(250,248,243,.7);text-decoration:none" style-hover="color:var(--se-hi)">hello@stableevershine.com</a>
+            <a href="/cdn-cgi/l/email-protection#c4aca1a8a8ab84b7b0a5a6a8a1a1b2a1b6b7acadaaa1eaa7aba9" style="display:block;margin-top:6px;font-size:14.5px;color:rgba(250,248,243,.7);text-decoration:none" style-hover="color:var(--se-hi)"><span class="__cf_email__" data-cfemail="e28a878e8e8da2919683808e8787948790918a8b8c87cc818d8f">[email&#160;protected]</span></a>
             <button onClick="{{ openContact }}" style="margin-top:20px;cursor:pointer;font-family:inherit;font-size:13.5px;font-weight:600;color:#FAF8F3;background:transparent;border:1px solid rgba(250,248,243,.24);padding:11px 20px;border-radius:9999px" style-hover="border-color:rgba(251,179,26,.6);color:var(--se-hi)">Enquire now →</button>
           </div>
         </div>
@@ -1478,7 +1481,7 @@
   <!-- ============ ENQUIRE MODAL ============ -->
   <sc-if value="{{ modalOpen }}" hint-placeholder-val="{{ false }}">
     <div onClick="{{ closeModal }}" style="position:fixed;inset:0;z-index:100;background:rgba(26,27,31,.62);backdrop-filter:blur(7px);display:flex;align-items:center;justify-content:center;padding:20px;overflow-y:auto">
-      <div onClick="{{ stop }}" style="position:relative;width:min(560px,100%);background:var(--se-bg);border-radius:16px;box-shadow:0 60px 120px -40px rgba(0,0,0,.6);overflow:hidden;margin:auto">
+      <div onClick="{{ stop }}" class="{{ modalCardClass }}" style="position:relative;width:min(560px,100%);background:var(--se-bg);border-radius:16px;box-shadow:0 60px 120px -40px rgba(0,0,0,.6);overflow:hidden;margin:auto">
         <div style="height:5px;background:var(--se-grad)"></div>
         <button onClick="{{ closeModal }}" style="position:absolute;top:16px;right:16px;border:0;background:rgba(43,43,43,.06);width:36px;height:36px;border-radius:9999px;cursor:pointer;font-size:20px;color:#23242A;line-height:1" style-hover="background:rgba(43,43,43,.12)">×</button>
 
@@ -1515,7 +1518,7 @@
   </sc-if>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:960},&quot;rayIntensity&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:58,&quot;min&quot;:0,&quot;max&quot;:100,&quot;step&quot;:1,&quot;unit&quot;:&quot;%&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Sunshine&quot;},&quot;sunPosition&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;left&quot;,&quot;center&quot;,&quot;right&quot;],&quot;default&quot;:&quot;left&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Sunshine&quot;},&quot;showMotes&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Sunshine&quot;},&quot;intro&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Onyx Minimal&quot;,&quot;Champagne Bloom&quot;,&quot;Light Sweep&quot;],&quot;default&quot;:&quot;Light Sweep&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Brand &amp; Motion&quot;},&quot;palette&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Sunrise&quot;,&quot;Champagne&quot;,&quot;Bronze&quot;],&quot;default&quot;:&quot;Sunrise&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Brand &amp; Motion&quot;},&quot;temperature&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Alabaster&quot;,&quot;Warm Ivory&quot;,&quot;Cool Stone&quot;],&quot;default&quot;:&quot;Warm Ivory&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Brand &amp; Motion&quot;},&quot;motion&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Cinematic&quot;,&quot;Subtle&quot;,&quot;Off&quot;],&quot;default&quot;:&quot;Cinematic&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Brand &amp; Motion&quot;}}">
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:960},&quot;rayIntensity&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:58,&quot;min&quot;:0,&quot;max&quot;:100,&quot;step&quot;:1,&quot;unit&quot;:&quot;%&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Sunshine&quot;},&quot;sunPosition&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;left&quot;,&quot;center&quot;,&quot;right&quot;],&quot;default&quot;:&quot;left&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Sunshine&quot;},&quot;showMotes&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Sunshine&quot;},&quot;intro&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Onyx Minimal&quot;,&quot;Champagne Bloom&quot;,&quot;Light Sweep&quot;],&quot;default&quot;:&quot;Light Sweep&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Brand &amp; Motion&quot;},&quot;palette&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Sunrise&quot;,&quot;Champagne&quot;,&quot;Bronze&quot;],&quot;default&quot;:&quot;Sunrise&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Brand &amp; Motion&quot;},&quot;temperature&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Alabaster&quot;,&quot;Warm Ivory&quot;,&quot;Cool Stone&quot;],&quot;default&quot;:&quot;Warm Ivory&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Brand &amp; Motion&quot;},&quot;motion&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Cinematic&quot;,&quot;Subtle&quot;,&quot;Off&quot;],&quot;default&quot;:&quot;Cinematic&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Brand &amp; Motion&quot;}}">
 const ENABLE_SCROLL_EFFECTS = true; // master switch — set false to revert to the original hero/site (no premium nav FX, no extra parallax)
 
 const SE_PALETTES = {
@@ -1596,6 +1599,16 @@ class Component extends DCLogic {
       this._t1 = setTimeout(() => this.setState({ leaving:true }), 1750);
       this._t2 = setTimeout(() => this.setState({ loading:false }), 2750);
     }
+
+    // Auto-open the enquiry form: once at 10s, again at 50s.
+    // Skips if the visitor already submitted, has it open, or has another overlay open.
+    const autoPop = () => {
+      const s = this.state;
+      if (s.sent || s.modalOpen || s.mobileOpen || s.searchOpen || s.loading) return;
+      this.setState({ modalOpen:true, sent:false, modalAuto:true });
+    };
+    this._autoPop1 = setTimeout(autoPop, 10000);
+    this._autoPop2 = setTimeout(autoPop, 50000);
     const vid = document.getElementById('se-hero-video');
     if (vid) {
       vid.loop = true;
@@ -1812,6 +1825,8 @@ class Component extends DCLogic {
     if (this._pRAF) cancelAnimationFrame(this._pRAF);
     if (this._t1) clearTimeout(this._t1);
     if (this._t2) clearTimeout(this._t2);
+    if (this._autoPop1) clearTimeout(this._autoPop1);
+    if (this._autoPop2) clearTimeout(this._autoPop2);
     if (this._io) this._io.disconnect();
     if (this._maskRAF) cancelAnimationFrame(this._maskRAF);
     if (this._curRAF) cancelAnimationFrame(this._curRAF);
@@ -1834,8 +1849,8 @@ class Component extends DCLogic {
     requestAnimationFrame(tick);
   }
 
-  openModal = () => this.setState({ modalOpen:true, sent:false });
-  openModalMobile = () => this.setState({ modalOpen:true, sent:false, mobileOpen:false });
+  openModal = () => this.setState({ modalOpen:true, sent:false, modalAuto:false });
+  openModalMobile = () => this.setState({ modalOpen:true, sent:false, modalAuto:false, mobileOpen:false });
   closeModal = () => this.setState({ modalOpen:false });
   toggleMobile = () => this.setState({ mobileOpen:!this.state.mobileOpen });
   closeMobile = () => this.setState({ mobileOpen:false });
@@ -2646,7 +2661,7 @@ class Component extends DCLogic {
       pageHasRera, pageRera,
       projectsList, whyPoints, lifestyleTags, testimonials, heroLines,
       mobileOpen:this.state.mobileOpen, toggleMobile:this.toggleMobile, closeMobile:this.closeMobile,
-      modalOpen:this.state.modalOpen, openModal:this.openModal, openModalMobile:this.openModalMobile, closeModal:this.closeModal,
+      modalOpen:this.state.modalOpen, modalCardClass: this.state.modalAuto ? 'se-modal-compact' : '', openModal:this.openModal, openModalMobile:this.openModalMobile, closeModal:this.closeModal,
       sent:this.state.sent, notSent:!this.state.sent, submitForm:this.submitForm, stop:this.stop,
       subscribed:this.state.subscribed, notSubscribed:!this.state.subscribed, subscribe:this.subscribe,
       reraOpen:this.state.reraOpen, toggleRera:this.toggleRera, closeRera:this.closeRera, reraCaret: this.state.reraOpen ? '180deg' : '0deg',
